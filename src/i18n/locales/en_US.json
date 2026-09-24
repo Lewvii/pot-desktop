@@ -238,6 +238,7 @@
                     "api": "Auth Key",
                     "deeplx": "DeepLX"
                 },
+                "deepseek": { "title": "DeepSeek" },
                 "google": {
                     "title": "Google",
                     "custom_url": "Custom URL"

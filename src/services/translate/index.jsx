@@ -1,4 +1,5 @@
 import * as _deepl from './deepl';
+import * as _deepseek from './deepseek';
 import * as _bing from './bing';
 import * as _yandex from './yandex';
 import * as _openai from './openai';
@@ -21,6 +22,7 @@ import * as _ecdict from './ecdict';
 import * as _lingva from './lingva';
 
 export const deepl = _deepl;
+export const deepseek = _deepseek;
 export const bing = _bing;
 export const yandex = _yandex;
 export const openai = _openai;

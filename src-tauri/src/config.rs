@@ -69,6 +69,7 @@ pub fn check_service_available() -> Result<(), Error> {
         "volcengine_multi_lang_ocr",
     ];
     let builtin_translate_list: Vec<&str> = vec![
+        "deepseek",
         "alibaba",
         "baidu",
         "baidu_field",

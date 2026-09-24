@@ -238,6 +238,7 @@
                     "api": "授權金鑰",
                     "deeplx": "DeepLX"
                 },
+                "deepseek": { "title": "DeepSeek" },
                 "google": {
                     "title": "Google 翻譯",
                     "custom_url": "自訂網址"
