@@ -430,12 +430,7 @@
                     "title": "QR Code"
                 }
             },
-            "tts": {
-                "lingva_tts": {
-                    "title": "Lingva",
-                    "request_path": "請求路徑"
-                }
-            },
+            "tts": {},
             "collection": {
                 "anki": {
                     "title": "Anki",

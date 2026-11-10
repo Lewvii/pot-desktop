@@ -9,8 +9,10 @@ export async function initStore() {
     const appConfigDirPath = await appConfigDir();
     const appConfigPath = await join(appConfigDirPath, 'config.json');
     store = new Store(appConfigPath);
-    const _ = await watch(appConfigPath, async () => {
-        await store.load();
+    const reload = async () => {
         await invoke('reload_store');
-    });
+        await store.load();
+    };
+    await watch(appConfigPath, reload);
+    await reload();
 }

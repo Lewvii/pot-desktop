@@ -219,12 +219,7 @@
                     "title": "Eudic"
                 }
             },
-            "tts": {
-                "lingva_tts": {
-                    "title": "Lingva",
-                    "request_path": "Chemin de la requête"
-                }
-            }
+            "tts": {}
         },
         "languages": {
             "mn_cy": "Mongolien (Cyrillique)",

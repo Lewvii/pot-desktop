@@ -432,12 +432,7 @@
                     "title": "Lingva"
                 }
             },
-            "tts": {
-                "lingva_tts": {
-                    "title": "Lingva",
-                    "request_path": "Шлях запиту"
-                }
-            },
+            "tts": {},
             "instance_name": "Назва конфігурації"
         },
         "translate": {

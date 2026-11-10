@@ -23,7 +23,18 @@ pub fn init_config(app: &mut tauri::App) {
         }
     }
     app.manage(StoreWrapper(Mutex::new(store)));
+    migrate_tts_defaults();
     let _ = check_service_available();
+}
+
+pub(crate) fn migrate_tts_defaults() {
+    if let Some(list) =
+        get("tts_service_list").and_then(|value| serde_json::from_value::<Vec<String>>(value).ok())
+    {
+        if let Some(migrated) = crate::tts_defaults::migrated_tts_list(&list) {
+            set("tts_service_list", migrated);
+        }
+    }
 }
 
 fn check_available(list: Vec<String>, builtin: Vec<&str>, plugin: Vec<String>, key: &str) {
@@ -92,7 +103,7 @@ pub fn check_service_available() -> Result<(), Error> {
         "yandex",
         "youdao",
     ];
-    let builtin_tts_list: Vec<&str> = vec!["lingva_tts"];
+    let builtin_tts_list: Vec<&str> = vec!["edge_tts"];
     let builtin_collection_list: Vec<&str> = vec!["anki", "eudic"];
 
     let plugin_recognize_list: Vec<String> = get_plugin_list("recognize").unwrap_or_default();

@@ -142,11 +142,7 @@
                     "title": "テンセント画像翻訳"
                 }
             },
-            "tts": {
-                "lingva_tts": {
-                    "request_path": "リクエストパス"
-                }
-            },
+            "tts": {},
             "collection": {
                 "anki": {
                     "title": "Anki"

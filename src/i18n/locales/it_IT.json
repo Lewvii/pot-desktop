@@ -200,12 +200,7 @@
                     "name": "Nome della raccolta"
                 }
             },
-            "tts": {
-                "lingva_tts": {
-                    "title": "Lingva",
-                    "request_path": "Percorso richiesto"
-                }
-            }
+            "tts": {}
         },
         "languages": {
             "mn_cy": "Mongolo (Cirillico)",

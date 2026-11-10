@@ -316,11 +316,7 @@
                 }
             },
             "help": "Guía de configuración",
-            "tts": {
-                "lingva_tts": {
-                    "title": "Lingva"
-                }
-            }
+            "tts": {}
         },
         "translate": {
             "speak": "Hablar",

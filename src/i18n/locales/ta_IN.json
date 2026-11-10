@@ -413,12 +413,7 @@
             "help": "உள்ளமைவு வழிகாட்டி",
             "no_need": "உள்ளமைவு தேவையில்லை",
             "instance_name": "உள்ளமைவு பெயர்",
-            "tts": {
-                "lingva_tts": {
-                    "title": "மொழியியல்",
-                    "request_path": "கோரிக்கை பாதை"
-                }
-            },
+            "tts": {},
             "collection": {
                 "anki": {
                     "title": "அங்கி",

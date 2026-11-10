@@ -228,12 +228,7 @@
                     "title": "Eudic"
                 }
             },
-            "tts": {
-                "lingva_tts": {
-                    "title": "Lingva",
-                    "request_path": "Caminho do Pedido"
-                }
-            }
+            "tts": {}
         },
         "languages": {
             "mn_cy": "Mongolês (Cirílico)",

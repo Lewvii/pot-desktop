@@ -11,6 +11,7 @@ import { useConfig, deleteKey } from '../../../../../hooks';
 import ServiceItem from './ServiceItem';
 import SelectModal from './SelectModal';
 import ConfigModal from './ConfigModal';
+import { DEFAULT_TTS_SERVICE_LIST } from '../../../../../services/tts/defaults';
 
 export default function Tts(props) {
     const { pluginList } = props;
@@ -21,9 +22,9 @@ export default function Tts(props) {
     } = useDisclosure();
     const { isOpen: isSelectOpen, onOpen: onSelectOpen, onOpenChange: onSelectOpenChange } = useDisclosure();
     const { isOpen: isConfigOpen, onOpen: onConfigOpen, onOpenChange: onConfigOpenChange } = useDisclosure();
-    const [currentConfigKey, setCurrentConfigKey] = useState('lingva_tts');
+    const [currentConfigKey, setCurrentConfigKey] = useState('edge_tts');
     // now it's service instance list
-    const [ttsServiceInstanceList, setTtsServiceInstanceList] = useConfig('tts_service_list', ['lingva_tts']);
+    const [ttsServiceInstanceList, setTtsServiceInstanceList] = useConfig('tts_service_list', DEFAULT_TTS_SERVICE_LIST);
 
     const { t } = useTranslation();
     const toastStyle = useToastStyle();

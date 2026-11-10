@@ -16,8 +16,11 @@ pub fn get_text(state: tauri::State<StringWrapper>) -> String {
 #[tauri::command]
 pub fn reload_store() {
     let state = APP.get().unwrap().state::<StoreWrapper>();
-    let mut store = state.0.lock().unwrap();
-    store.load().unwrap();
+    {
+        let mut store = state.0.lock().unwrap();
+        store.load().unwrap();
+    }
+    crate::config::migrate_tts_defaults();
 }
 
 #[tauri::command]

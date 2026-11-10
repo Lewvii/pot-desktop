@@ -434,9 +434,12 @@
                 }
             },
             "tts": {
-                "lingva_tts": {
-                    "title": "Lingva",
-                    "request_path": "Request Path"
+                "edge_tts": {
+                    "title": "Microsoft Edge",
+                    "description": "Online speech, ready to use without an API key. Text is sent to Microsoft for speech generation.",
+                    "voice": "Voice ID (optional)",
+                    "automatic": "Choose automatically for the text language",
+                    "voice_help": "Leave empty for automatic selection, or enter a voice such as en-US-AriaNeural or zh-CN-XiaoxiaoNeural."
                 }
             },
             "collection": {

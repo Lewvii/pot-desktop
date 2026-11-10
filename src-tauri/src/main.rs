@@ -5,6 +5,7 @@ mod backup;
 mod clipboard;
 mod cmd;
 mod config;
+mod edge_tts;
 mod error;
 mod hotkey;
 mod lang_detect;
@@ -12,6 +13,7 @@ mod screenshot;
 mod server;
 mod system_ocr;
 mod tray;
+mod tts_defaults;
 // mod updater;
 mod window;
 
@@ -147,7 +149,8 @@ fn main() {
             local,
             install_plugin,
             font_list,
-            aliyun
+            aliyun,
+            edge_tts::edge_tts
         ])
         .on_system_tray_event(tray_event_handler)
         .build(tauri::generate_context!())

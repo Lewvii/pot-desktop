@@ -16,6 +16,7 @@ import { osType } from '../../utils/env';
 import { useConfig } from '../../hooks';
 import { store } from '../../utils/store';
 import { info } from 'tauri-plugin-log-api';
+import { DEFAULT_TTS_SERVICE_LIST } from '../../services/tts/defaults';
 
 let blurTimeout = null;
 let resizeTimeout = null;
@@ -77,7 +78,7 @@ export default function Translate() {
         'ecdict',
     ]);
     const [recognizeServiceInstanceList] = useConfig('recognize_service_list', ['system', 'tesseract']);
-    const [ttsServiceInstanceList] = useConfig('tts_service_list', ['lingva_tts']);
+    const [ttsServiceInstanceList] = useConfig('tts_service_list', DEFAULT_TTS_SERVICE_LIST);
     const [collectionServiceInstanceList] = useConfig('collection_service_list', []);
     const [hideLanguage] = useConfig('hide_language', false);
     const [pined, setPined] = useState(false);
