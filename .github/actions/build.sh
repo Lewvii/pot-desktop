@@ -1,4 +1,6 @@
-# pnpm install --resolution-only
+#!/bin/bash
+set -euo pipefail
+
 pnpm install
 sed -i "s/#openssl/openssl={version=\"0.10\",features=[\"vendored\"]}/g" src-tauri/Cargo.toml
 if [ "$INPUT_TARGET" = "x86_64-unknown-linux-gnu" ]; then

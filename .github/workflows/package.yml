@@ -103,23 +103,29 @@ jobs:
             - name: Setup pnpm
               uses: pnpm/action-setup@v4
               with:
-                  version: 9
+                  version: latest
             - name: Install Dependencies
               run: pnpm install
             - name: Code Format
               run: pnpm prettier --write .
             - name: Build and Package
+              env:
+                  TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
+                  TAURI_KEY_PASSWORD: ${{ secrets.TAURI_KEY_PASSWORD }}
+                  APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
+                  APPLE_CERTIFICATE: ${{ secrets.APPLE_CERTIFICATE }}
+                  APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+                  APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+                  APPLE_API_ISSUER: ${{ secrets.APPLE_API_ISSUER }}
+                  APPLE_API_KEY: ${{ secrets.APPLE_API_KEY }}
+                  APPLE_ID: ${{ secrets.APPLE_ID }}
+                  APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
               run: |
-                  export TAURI_PRIVATE_KEY="${{ secrets.TAURI_PRIVATE_KEY }}"
-                  export TAURI_KEY_PASSWORD="${{ secrets.TAURI_KEY_PASSWORD }}"
-                  export APPLE_SIGNING_IDENTITY="${{ secrets.APPLE_SIGNING_IDENTITY }}"
-                  export APPLE_CERTIFICATE="${{ secrets.APPLE_CERTIFICATE }}"
-                  export APPLE_CERTIFICATE_PASSWORD="${{ secrets.APPLE_CERTIFICATE_PASSWORD }}"
-                  export APPLE_TEAM_ID="${{ secrets.APPLE_TEAM_ID }}"
-                  export APPLE_API_ISSUER="${{ secrets.APPLE_API_ISSUER }}"
-                  export APPLE_API_KEY="${{ secrets.APPLE_API_KEY }}"
-                  export APPLE_ID="${{ secrets.APPLE_ID }}"
-                  export APPLE_PASSWORD="${{ secrets.APPLE_PASSWORD }}"
+                  for name in APPLE_SIGNING_IDENTITY APPLE_CERTIFICATE APPLE_TEAM_ID APPLE_API_ISSUER APPLE_API_KEY APPLE_ID APPLE_PASSWORD; do
+                      if [ -z "${!name:-}" ]; then
+                          unset "$name"
+                      fi
+                  done
                   pnpm tauri build --target ${{ matrix.target }}
                   sudo chmod +x src-tauri/resources/*
                   chmod +x src-tauri/resources/*
@@ -195,7 +201,7 @@ jobs:
             - name: Setup pnpm
               uses: pnpm/action-setup@v4
               with:
-                  version: 9
+                  version: latest
             - name: Install Dependencies
               run: pnpm install
             - name: Code Format
@@ -257,7 +263,7 @@ jobs:
             - name: Setup pnpm
               uses: pnpm/action-setup@v4
               with:
-                  version: 9
+                  version: latest
             - name: Install Dependencies
               run: pnpm install
             - name: Code Format
